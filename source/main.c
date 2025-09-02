@@ -5,7 +5,8 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-#define DEFAULT_NRO "sdmc:/atmosphere/contents/4200202412091622/notify.nro"
+#define DEFAULT_NRO "sdmc:/atmosphere/contents/4200202509021438/notify.ovl"
+/* #define DEFAULT_NRO "sdmc:/switch/.overlays/00_save-cloud.ovl" */
 
 const char g_noticeText[] =
     "nx-notifyloader " VERSION "\0"
@@ -158,6 +159,7 @@ void loadNro(void)
 
     if (g_nroSize > 0)
     {
+        svcExitProcess();
         // Unmap previous NRO.
         header = &g_nroHeader;
         rw_size = header->segments[2].size + header->bss_size;
