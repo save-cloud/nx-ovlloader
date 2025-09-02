@@ -1,0 +1,33 @@
+[
+ {
+  "directory": "/Users/yuuko/develop/switch-homebrew/notify-sys",
+  "arguments": [
+   "aarch64-none-elf-gcc",
+   "-MMD",
+   "-MP",
+   "-MF",
+   "/Users/yuuko/develop/switch-homebrew/notify-sys/build/main.d",
+   "-g",
+   "-Wall",
+   "-O2",
+   "-ffunction-sections",
+   "-march=armv8-a+crc+crypto",
+   "-mtune=cortex-a57",
+   "-fPIE",
+   "-I/Users/yuuko/develop/switch-homebrew/notify-sys/include",
+   "-I/opt/devkitpro/devkitA64/aarch64-none-elf/include",
+   "-I/opt/devkitpro/portlibs/switch/include",
+   "-I/opt/devkitpro/portlibs/switch/include/SDL2",
+   "-I/opt/devkitpro/portlibs/switch/include/freetype2",
+   "-I/opt/devkitpro/libnx/include",
+   "-I/Users/yuuko/develop/switch-homebrew/notify-sys/build",
+   "-D__SWITCH__",
+   "-c",
+   "/Users/yuuko/develop/switch-homebrew/notify-sys/source/main.c",
+   "-o",
+   "main.o"
+  ],
+  "file": "/Users/yuuko/develop/switch-homebrew/notify-sys/source/main.c"
+ }
+]
+

@@ -5,15 +5,15 @@
 #include <fcntl.h>
 #include <unistd.h>
 
-#define DEFAULT_NRO "sdmc:/switch/.overlays/ovlmenu.ovl"
+#define DEFAULT_NRO "sdmc:/atmosphere/contents/4200202412091622/notify.nro"
 
 const char g_noticeText[] =
-    "nx-ovlloader " VERSION "\0"
-    "What's the most resilient parasite? A bacteria? A virus? An intestinal worm? An idea. Resilient, highly contagious.";
+    "nx-notifyloader " VERSION "\0"
+    "No time to explain, follow me!";
 
-static char g_argv[2048];
-static char g_nextArgv[2048];
-static char g_nextNroPath[512];
+static char g_argv[512];
+static char g_nextArgv[512];
+static char g_nextNroPath[256];
 u64  g_nroAddr = 0;
 static u64  g_nroSize = 0;
 static NroHeader g_nroHeader;
@@ -338,7 +338,7 @@ void loadNro(void)
 
     memset(__stack_top - STACK_SIZE, 0, STACK_SIZE);
 
-    extern NORETURN void nroEntrypointTrampoline(u64 entries_ptr, u64 handle, u64 entrypoint);
+    extern void nroEntrypointTrampoline(u64 entries_ptr, u64 handle, u64 entrypoint);
     nroEntrypointTrampoline((u64) entries, -1, entrypoint);
 }
 
@@ -353,6 +353,5 @@ int main(int argc, char **argv)
     getOwnProcessHandle();
     loadNro();
 
-    fatalThrow(MAKERESULT(Module_HomebrewLoader, 8));
     return 0;
 }
